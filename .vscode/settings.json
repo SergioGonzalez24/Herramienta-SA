@@ -1,0 +1,3 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/sa_tools/linux"
+}
