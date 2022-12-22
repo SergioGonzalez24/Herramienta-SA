@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sa_tools/home_page.dart';
+import 'package:sa_tools/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,19 +33,28 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
+
+  List<Widget> pages = [
+    const HomePage(),
+    const ProfilePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter App'),
       ),
-      body: const HomePage(),
+
+      body: pages[currentPage], // Pagina Actual
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('Floating Action Button Pressed');
         },
         child: const Icon(Icons.add),
       ),
+
       bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'home'),
@@ -54,6 +64,8 @@ class _RootPageState extends State<RootPage> {
           setState(() {
             currentPage = index;
           });
+          debugPrint(
+              'Current Page: $currentPage'); // Imprime el indice da la pagina
         },
         selectedIndex: currentPage,
       ),
