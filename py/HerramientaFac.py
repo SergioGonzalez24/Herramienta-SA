@@ -9,8 +9,8 @@ import time as t
     
 
 # Datos de factura
-serieFac = pd.DataFrame({'Serie': ['B', 'C', 'H', 'T', 'W'], 
-                        'Numero': ['1', '11', '16', '2', '21']})
+serieFac = pd.DataFrame({'Serie': ['B', 'C', 'F', 'H', 'T', 'W'], 
+                        'Numero': ['1', '11', '14', '16', '2', '21']})
 
 
 # Transformar datos de la factura a formato de CG
@@ -45,32 +45,33 @@ def generadorFac(fac: str) -> str:
 
     for i in range(serieFac['Serie'].size):
         if letter == serieFac['Serie'][i]:
-            fac = serieFac['Numero'][i] + fac[1]
-            
-            if fac[1] != '0':
-                while len(fac) < 10:
-                    fac = fac[0:2] + '0' + fac[2:]
-                break
-            else:
-                fac = fac[0] + '0' + fac[1:]
-                break
+
+            to_add = serieFac['Numero'][i]
+            complement = fac[1]
+
+            while len(to_add + complement) < 10:
+                to_add = to_add + '0'
+            break
+
     
-    return fac
+    return to_add + complement
 
         
 
 if __name__ == '__main__':
     
-    # Agregar excepciones para el formato de la fecha y el numero de factura
-    
-    fechaBase = '01/01/1900'
-    fechaActual = t.strftime("%d/%m/%Y", t.localtime())
-    
-    fac = input('Introduce el numero de factura: ')
-    # fechaOriginal = input('Introduce la fecha de la factura: ')
+    while True:
+        
+        # Agregar excepciones para el formato de la fecha y el numero de factura
+        
+        fechaBase = '01/01/1900'
+        fechaActual = t.strftime("%d/%m/%Y", t.localtime())
+        
+        #fac = input('Introduce el numero de factura: ')
+        fechaOriginal = input('Introduce la fecha de la factura: ')
 
-    
-    print(serieFac, '\n')
-    print(generadorFac(fac.capitalize()), '\n')
-    # print(dateCounter(fechaBase, fechaOriginal, fechaActual))
+        
+        print(serieFac, '\n')
+        #print(generadorFac(fac.capitalize()), '\n')
+        print(dateCounter(fechaBase, fechaOriginal, fechaActual))
     
