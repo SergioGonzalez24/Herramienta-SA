@@ -16,28 +16,55 @@ def main():
         3. Generador de fecha
         4. Salir
         ''')
+        stay = True
         opcion = int(input('Introduce la opcion deseada: '))
         if opcion == 1:
-            numero_estacion = input('Introduce el numero de estacion: ')
-            print(GeneradorContras.transformadora(numero_estacion))
+            # Repetir hasta que el usuario decida salir
+            while stay:
+                numero_estacion = input('Introduce el numero de estacion: ')
+                print(GeneradorContras.transformadora(numero_estacion))
+                
+                print("Enter para seguir en Contraseñas, escriba exit para salir ")
+                if input() == 'exit':
+                    stay = False
+                else:
+                    continue
+                
             
         elif opcion == 2:
-            fac = input('Introduce la factura: ')
-            print(HerramientaFac.generadorFac(fac.capitalize()), '\n')
+            # Repetir hasta que el usuario decida salir
+            while stay:
+                fac = input('Introduce la factura: ')
+                print(HerramientaFac.generadorFac(fac.capitalize()), '\n')
+                
+                print("Enter para seguir en Contraseñas, escriba ""exit"" para salir ")
+                if input() == 'exit':
+                    stay = False
+                else:
+                    continue
+                
             
         elif opcion == 3:
-            fechaOriginal = input('Introduce la fecha de la factura: ')
-            fechaBase = '01/01/1900'
-            fechaActual = t.strftime('%d/%m/%Y', t.localtime())
-            print("  Factura | Actual \n", 
-                  HerramientaFac.dateCounter(fechaBase, fechaOriginal, fechaActual))
-            
+            # Repetir hasta que usuario decida salir
+            while stay:
+                fechaOriginal = input('Introduce la fecha de la factura: ')
+                fechaBase = '01/01/1900'
+                fechaActual = t.strftime('%d/%m/%Y', t.localtime())
+                print("  Factura | Actual \n", 
+                    HerramientaFac.dateCounter(fechaBase, fechaOriginal, fechaActual))
+                
+                print("Enter para seguir en Contraseñas, escriba exit para salir ")
+                if input() == 'exit':
+                    stay = False
+                else:
+                    continue
+                
         elif opcion == 4:
             break
         
         else:
             print('Opcion invalida')
-        input('Presiona enter para continuar')
+            input('Presiona enter para continuar')
 
 
 if __name__ == '__main__':
