@@ -2,6 +2,7 @@
 
 import HerramientaFac
 import GeneradorContras
+from separador import separador
 import time as t
 
 # importar modulo para generar GUI de Herramientas
@@ -14,7 +15,8 @@ def main():
         1. Generador de contraseñas
         2. Generador de facturas
         3. Generador de fecha
-        4. Salir
+        4. Separador de IDs Despachos (Modifica el txt despachos.txt antes de su ejecucción)
+        5. Salir
         ''')
         stay = True
         opcion = int(input('Introduce la opcion deseada: '))
@@ -60,6 +62,10 @@ def main():
                     continue
                 
         elif opcion == 4:
+            # Se Ejecuta solamente una vez
+            separador()
+                
+        elif opcion == 5:
             break
         
         else:
