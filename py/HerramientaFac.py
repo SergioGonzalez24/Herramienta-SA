@@ -67,11 +67,11 @@ if __name__ == '__main__':
         fechaBase = '01/01/1900'
         fechaActual = t.strftime("%d/%m/%Y", t.localtime())
         
-        #fac = input('Introduce el numero de factura: ')
-        fechaOriginal = input('Introduce la fecha de la factura: ')
+        fac = input('Introduce el numero de factura: ')
+        #fechaOriginal = input('Introduce la fecha de la factura: ')
 
         
         print(serieFac, '\n')
-        #print(generadorFac(fac.capitalize()), '\n')
-        print(dateCounter(fechaBase, fechaOriginal, fechaActual))
+        print(generadorFac(fac.capitalize()), '\n')
+        #print(dateCounter(fechaBase, fechaOriginal, fechaActual))
     

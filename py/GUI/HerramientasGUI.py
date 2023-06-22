@@ -10,4 +10,6 @@ app_herramientas = ctk.CTk()  # create CTk window like you do with the Tk window
 app_herramientas.geometry("600x900") # set the size of the window
 
 
+
+
 app_herramientas.mainloop() # start the mainloop
