@@ -1,3 +1,10 @@
+# Desarrollado por: Sergio Gonzalez
+
+
+# La clase TransformarArchivo proporciona métodos para verificar y transformar un archivo de texto,
+# incluida la verificación de su codificación, la eliminación de valores nulos y líneas en blanco,
+# manteniendo solo los valores importantes y convirtiéndolo en un archivo .dat.
+
 import os
 import chardet
 
@@ -69,20 +76,24 @@ class TransformarArchivo:
             for linea in lineas:
                 archivo.write(linea)
             
+ 
+ 
+ 
         
+# Codigo de prueba de la clase TransformarArchivo
 
-
-if __name__ == '__main__':
-    archivo = 'Asistencias21037AM.txt'
+# if __name__ == '__main__':
     
-    archivo_transformado = TransformarArchivo(archivo)
+#     archivo = 'Asistencias21037AM.txt'
     
-    if archivo_transformado.verificar_archivo():
-        archivo_transformado.transformar_archivo()
+#     archivo_transformado = TransformarArchivo(archivo)
+    
+#     if archivo_transformado.verificar_archivo():
+#         archivo_transformado.transformar_archivo()
         
-        archivo_transformado.limpieza_archivo()
-        archivo_transformado.transformar_a_punto_dat()
+#         archivo_transformado.limpieza_archivo()
+#         archivo_transformado.transformar_a_punto_dat()
         
-        print(f'El archivo {archivo} se ha transformado correctamente.')
-    else:
-        print(f'El archivo {archivo} no existe.')
+#         print(f'El archivo {archivo} se ha transformado correctamente.')
+#     else:
+#         print(f'El archivo {archivo} no existe.')
